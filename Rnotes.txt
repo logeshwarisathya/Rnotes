@@ -1,0 +1,2607 @@
+---------
+|29/9/25|
+---------
+
+
+LIBRARY : collection of packages and modules
+
+modules: collection of reusable codes.
+---------                            
+
+
+
+1.modules
+2.destructuring
+
+FEARTURES
+----------
+1. Component based 
+2. jsx
+3. virtual DOM
+4. Declarative
+5. One way data binding
+6. simplicity
+
+
+
+---------
+|30/9/25|
+---------
+
+COMPONENT
+----------
+c is a smallest part of website. in single page application everything considered
+ as a component or piece or chunck of codes.
+
+1.class based component =>state full: u can store the value
+2.function based component =>state less : there is no pre defined component
+
+INSTALATION STEPS
+-----------------
+
+=>npm create vite@latest
+
+
+--->
+C:\Users\User>node -v
+v22.19.0
+
+C:\Users\User>npm -v
+10.9.3
+
+C:\Users\User>npm create vite@latest
+
+> npx
+> create-vite
+
+|
+o  Project name:
+|  react-topics
+|
+o  Select a framework:
+|  React
+|
+o  Select a variant:
+|  JavaScript
+|
+o  Use rolldown-vite (Experimental)?:
+|  No
+|
+o  Install with npm and start now?
+|  No
+|
+o  Scaffolding project in C:\Users\User\react-topics...
+|
+—  Done. Now run:
+
+  cd react-topics
+  npm install
+  npm run dev
+
+
+
+
+
+Main.jsx---->entry level file
+App.jsx----->component
+
+
+---------
+|2/10/25|
+---------
+
+JSX
+----
+it allows u to write js and html like content
+
+JSX RULES:
+----------
+* wrap the container with same elements like <h1></h1> <h1></h1>
+*in react we have the class name is in camel case -> className
+*in html in form in lable it shows for="" but in react htmlFor=""
+*call the component <Child/>,  <Child></Child>
+
+RENDER : is a method which allow u to render the element
+
+IF==>  ways to create if
+------------------------
+
+{a==7 ? "hello:" :"incorrect"}
+{a==7 ? <h1>hello</h1>:"incorrect"}
+
+
+FUNCTION
+---------
+function App(){
+    let a=7;
+    let b=11;
+    function Myapp(){
+        console.log("welcome");
+        console.log("Logeshwari")
+    }
+    return(
+        <div>
+        <h1>Logeshwari</h1>
+        <h1>react</h1>
+        <h1>{a+b}</h1>
+        <h1>{a==7 ? "hello:" :"incorrect"}</h1> 
+        <h1>{a+b==1 ? "18" : "wrong"}</h1>
+        <h1>{(a+b)%2==0 ?"even" : "odd"}</h1>
+        
+
+        {Myapp()}
+       </div> 
+    )
+
+    
+}
+export default App;
+
+
+VIRTUAL DOM
+---------
+it is a copy of real DOM 
+
+---------
+|3/10/25|
+---------
+
+instalation steps recap
+
+---------
+|4/10/25|
+---------
+
+PROPS - properties
+-------------------
+
+1.props is unidirectional- means only shares the data from parent to child not child to parent.
+2.
+
+
+---------
+|8/10/25|
+---------
+
+INSTALL THESE EXTENSIONS IN VS CODE
+------------------------------------
+1.ES7+ React/Redux/React-Native snippets
+
+
+ARRAY
+-----
+Method 1 to destructure:
+=======================
+ {/* <Child data={num} name={name} married={married} job={job} kids={kids} /> */}
+
+
+- TWO TYPES OF FRAGMENT
+--------------------------
+it is a component provided by react.react fragment is a kind of fearture in reactjs.that allows u to multiple elements, without adding an extra note.
+
+
+1.<>- empty fragment or shorthand syntex fragment
+------------------------------------------------
+-it allows u to use empty tags instead of fragment components.this is a more conscie way to create and often prefered 
+
+CONS OF EMPTY FRAGMENTS:
+-----------------------
+you cant use any attributes like id, class,style..etc
+
+
+
+2.<Fragment>-  it is a standard way to create a kind of fragment and it is also considered as a component.it can wrap multiple children without adding extra node in DOM. it only needs one key word
+         
+
+
+---------
+|13/10/25|
+---------
+
+1st Method to mention the PROPS
+-------------------------------
+USING PROPS :-
+==============
+Parent.jsx|
+-----------
+ import React from 'react'
+import Child  from './Child'
+
+
+const Parent = () => {
+    let fruits=['apple','mango','graps','kiwi']
+  return (
+    <div>Parent
+        <Child  arr={fruits}/>
+    </div>
+  )
+}
+
+export default Parent;
+
+----------
+Child.jsx|
+----------
+
+import React, { Fragment } from 'react'
+
+const Child = (props) => {
+    console.log(props);
+  return (
+    <div>
+        {props.arr.map((i,j)=>{
+            return(
+                <Fragment key={j}>
+                    <li>{i}</li>
+
+                </Fragment>
+            )
+        })}
+    </div>
+  )
+}
+
+export default Child
+
+
+
+
+2nd METHOD using FOR IN LOOP:-
+==============================
+
+---------
+Child.jsx|
+----------
+
+
+import React, { Fragment } from 'react'
+
+const Child = (props) => {
+    console.log(props);
+    for(let i in props.arr){
+        console.log(props.arr[i])
+    }
+  return (
+    <div>
+        {props.arr.map((i,j)=>{
+            return(
+                <Fragment key={j}>
+                    <li>{i}</li>
+
+                </Fragment>
+            )
+        })}
+
+    </div>
+  )
+}
+
+export default Child
+
+
+
+
+
+
+
+
+-----------------------------------------------
+=> go to ==>api.github.com/users  -in browser
+
+
+
+
+
+
+
+PROPS
+=======
+Child1.jsx
+----------
+
+
+
+
+// import { Fragment } from "react";
+
+// const Child1 = ({ data }) => {
+//   console.log(data)
+//   return (
+//     <div>
+//       {data.map((a, b) => (
+//         <Fragment key={b}>
+//           <h1>{a.avatar_url}</h1>
+//           <h1>{a.login}</h1>
+//         </Fragment>
+//       ))}
+//     </div>
+//   );
+// };
+
+
+Parent.jsx
+===========
+
+import Child1 from './Child1'
+
+
+const Samplecode = () => {
+    let userData=[
+  {
+    "login": "mojombo",
+    "id": 1,
+    "node_id": "MDQ6VXNlcjE=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mojombo",
+    "html_url": "https://github.com/mojombo",
+    "followers_url": "https://api.github.com/users/mojombo/followers",
+    "following_url": "https://api.github.com/users/mojombo/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mojombo/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mojombo/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mojombo/subscriptions",
+    "organizations_url": "https://api.github.com/users/mojombo/orgs",
+    "repos_url": "https://api.github.com/users/mojombo/repos",
+    "events_url": "https://api.github.com/users/mojombo/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mojombo/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "defunkt",
+    "id": 2,
+    "node_id": "MDQ6VXNlcjI=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/defunkt",
+    "html_url": "https://github.com/defunkt",
+    "followers_url": "https://api.github.com/users/defunkt/followers",
+    "following_url": "https://api.github.com/users/defunkt/following{/other_user}",
+    "gists_url": "https://api.github.com/users/defunkt/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/defunkt/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/defunkt/subscriptions",
+    "organizations_url": "https://api.github.com/users/defunkt/orgs",
+    "repos_url": "https://api.github.com/users/defunkt/repos",
+    "events_url": "https://api.github.com/users/defunkt/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/defunkt/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "pjhyett",
+    "id": 3,
+    "node_id": "MDQ6VXNlcjM=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/3?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/pjhyett",
+    "html_url": "https://github.com/pjhyett",
+    "followers_url": "https://api.github.com/users/pjhyett/followers",
+    "following_url": "https://api.github.com/users/pjhyett/following{/other_user}",
+    "gists_url": "https://api.github.com/users/pjhyett/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/pjhyett/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/pjhyett/subscriptions",
+    "organizations_url": "https://api.github.com/users/pjhyett/orgs",
+    "repos_url": "https://api.github.com/users/pjhyett/repos",
+    "events_url": "https://api.github.com/users/pjhyett/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/pjhyett/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "wycats",
+    "id": 4,
+    "node_id": "MDQ6VXNlcjQ=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/4?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/wycats",
+    "html_url": "https://github.com/wycats",
+    "followers_url": "https://api.github.com/users/wycats/followers",
+    "following_url": "https://api.github.com/users/wycats/following{/other_user}",
+    "gists_url": "https://api.github.com/users/wycats/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/wycats/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/wycats/subscriptions",
+    "organizations_url": "https://api.github.com/users/wycats/orgs",
+    "repos_url": "https://api.github.com/users/wycats/repos",
+    "events_url": "https://api.github.com/users/wycats/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/wycats/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "ezmobius",
+    "id": 5,
+    "node_id": "MDQ6VXNlcjU=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/5?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/ezmobius",
+    "html_url": "https://github.com/ezmobius",
+    "followers_url": "https://api.github.com/users/ezmobius/followers",
+    "following_url": "https://api.github.com/users/ezmobius/following{/other_user}",
+    "gists_url": "https://api.github.com/users/ezmobius/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/ezmobius/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/ezmobius/subscriptions",
+    "organizations_url": "https://api.github.com/users/ezmobius/orgs",
+    "repos_url": "https://api.github.com/users/ezmobius/repos",
+    "events_url": "https://api.github.com/users/ezmobius/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/ezmobius/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "ivey",
+    "id": 6,
+    "node_id": "MDQ6VXNlcjY=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/6?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/ivey",
+    "html_url": "https://github.com/ivey",
+    "followers_url": "https://api.github.com/users/ivey/followers",
+    "following_url": "https://api.github.com/users/ivey/following{/other_user}",
+    "gists_url": "https://api.github.com/users/ivey/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/ivey/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/ivey/subscriptions",
+    "organizations_url": "https://api.github.com/users/ivey/orgs",
+    "repos_url": "https://api.github.com/users/ivey/repos",
+    "events_url": "https://api.github.com/users/ivey/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/ivey/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "evanphx",
+    "id": 7,
+    "node_id": "MDQ6VXNlcjc=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/7?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/evanphx",
+    "html_url": "https://github.com/evanphx",
+    "followers_url": "https://api.github.com/users/evanphx/followers",
+    "following_url": "https://api.github.com/users/evanphx/following{/other_user}",
+    "gists_url": "https://api.github.com/users/evanphx/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/evanphx/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/evanphx/subscriptions",
+    "organizations_url": "https://api.github.com/users/evanphx/orgs",
+    "repos_url": "https://api.github.com/users/evanphx/repos",
+    "events_url": "https://api.github.com/users/evanphx/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/evanphx/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "vanpelt",
+    "id": 17,
+    "node_id": "MDQ6VXNlcjE3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/17?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/vanpelt",
+    "html_url": "https://github.com/vanpelt",
+    "followers_url": "https://api.github.com/users/vanpelt/followers",
+    "following_url": "https://api.github.com/users/vanpelt/following{/other_user}",
+    "gists_url": "https://api.github.com/users/vanpelt/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/vanpelt/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/vanpelt/subscriptions",
+    "organizations_url": "https://api.github.com/users/vanpelt/orgs",
+    "repos_url": "https://api.github.com/users/vanpelt/repos",
+    "events_url": "https://api.github.com/users/vanpelt/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/vanpelt/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "wayneeseguin",
+    "id": 18,
+    "node_id": "MDQ6VXNlcjE4",
+    "avatar_url": "https://avatars.githubusercontent.com/u/18?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/wayneeseguin",
+    "html_url": "https://github.com/wayneeseguin",
+    "followers_url": "https://api.github.com/users/wayneeseguin/followers",
+    "following_url": "https://api.github.com/users/wayneeseguin/following{/other_user}",
+    "gists_url": "https://api.github.com/users/wayneeseguin/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/wayneeseguin/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/wayneeseguin/subscriptions",
+    "organizations_url": "https://api.github.com/users/wayneeseguin/orgs",
+    "repos_url": "https://api.github.com/users/wayneeseguin/repos",
+    "events_url": "https://api.github.com/users/wayneeseguin/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/wayneeseguin/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "brynary",
+    "id": 19,
+    "node_id": "MDQ6VXNlcjE5",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/brynary",
+    "html_url": "https://github.com/brynary",
+    "followers_url": "https://api.github.com/users/brynary/followers",
+    "following_url": "https://api.github.com/users/brynary/following{/other_user}",
+    "gists_url": "https://api.github.com/users/brynary/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/brynary/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/brynary/subscriptions",
+    "organizations_url": "https://api.github.com/users/brynary/orgs",
+    "repos_url": "https://api.github.com/users/brynary/repos",
+    "events_url": "https://api.github.com/users/brynary/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/brynary/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "kevinclark",
+    "id": 20,
+    "node_id": "MDQ6VXNlcjIw",
+    "avatar_url": "https://avatars.githubusercontent.com/u/20?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/kevinclark",
+    "html_url": "https://github.com/kevinclark",
+    "followers_url": "https://api.github.com/users/kevinclark/followers",
+    "following_url": "https://api.github.com/users/kevinclark/following{/other_user}",
+    "gists_url": "https://api.github.com/users/kevinclark/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/kevinclark/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/kevinclark/subscriptions",
+    "organizations_url": "https://api.github.com/users/kevinclark/orgs",
+    "repos_url": "https://api.github.com/users/kevinclark/repos",
+    "events_url": "https://api.github.com/users/kevinclark/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/kevinclark/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "technoweenie",
+    "id": 21,
+    "node_id": "MDQ6VXNlcjIx",
+    "avatar_url": "https://avatars.githubusercontent.com/u/21?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/technoweenie",
+    "html_url": "https://github.com/technoweenie",
+    "followers_url": "https://api.github.com/users/technoweenie/followers",
+    "following_url": "https://api.github.com/users/technoweenie/following{/other_user}",
+    "gists_url": "https://api.github.com/users/technoweenie/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/technoweenie/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/technoweenie/subscriptions",
+    "organizations_url": "https://api.github.com/users/technoweenie/orgs",
+    "repos_url": "https://api.github.com/users/technoweenie/repos",
+    "events_url": "https://api.github.com/users/technoweenie/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/technoweenie/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "macournoyer",
+    "id": 22,
+    "node_id": "MDQ6VXNlcjIy",
+    "avatar_url": "https://avatars.githubusercontent.com/u/22?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/macournoyer",
+    "html_url": "https://github.com/macournoyer",
+    "followers_url": "https://api.github.com/users/macournoyer/followers",
+    "following_url": "https://api.github.com/users/macournoyer/following{/other_user}",
+    "gists_url": "https://api.github.com/users/macournoyer/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/macournoyer/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/macournoyer/subscriptions",
+    "organizations_url": "https://api.github.com/users/macournoyer/orgs",
+    "repos_url": "https://api.github.com/users/macournoyer/repos",
+    "events_url": "https://api.github.com/users/macournoyer/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/macournoyer/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "takeo",
+    "id": 23,
+    "node_id": "MDQ6VXNlcjIz",
+    "avatar_url": "https://avatars.githubusercontent.com/u/23?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/takeo",
+    "html_url": "https://github.com/takeo",
+    "followers_url": "https://api.github.com/users/takeo/followers",
+    "following_url": "https://api.github.com/users/takeo/following{/other_user}",
+    "gists_url": "https://api.github.com/users/takeo/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/takeo/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/takeo/subscriptions",
+    "organizations_url": "https://api.github.com/users/takeo/orgs",
+    "repos_url": "https://api.github.com/users/takeo/repos",
+    "events_url": "https://api.github.com/users/takeo/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/takeo/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "caged",
+    "id": 25,
+    "node_id": "MDQ6VXNlcjI1",
+    "avatar_url": "https://avatars.githubusercontent.com/u/25?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/caged",
+    "html_url": "https://github.com/caged",
+    "followers_url": "https://api.github.com/users/caged/followers",
+    "following_url": "https://api.github.com/users/caged/following{/other_user}",
+    "gists_url": "https://api.github.com/users/caged/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/caged/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/caged/subscriptions",
+    "organizations_url": "https://api.github.com/users/caged/orgs",
+    "repos_url": "https://api.github.com/users/caged/repos",
+    "events_url": "https://api.github.com/users/caged/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/caged/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "topfunky",
+    "id": 26,
+    "node_id": "MDQ6VXNlcjI2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/26?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/topfunky",
+    "html_url": "https://github.com/topfunky",
+    "followers_url": "https://api.github.com/users/topfunky/followers",
+    "following_url": "https://api.github.com/users/topfunky/following{/other_user}",
+    "gists_url": "https://api.github.com/users/topfunky/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/topfunky/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/topfunky/subscriptions",
+    "organizations_url": "https://api.github.com/users/topfunky/orgs",
+    "repos_url": "https://api.github.com/users/topfunky/repos",
+    "events_url": "https://api.github.com/users/topfunky/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/topfunky/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "anotherjesse",
+    "id": 27,
+    "node_id": "MDQ6VXNlcjI3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/27?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/anotherjesse",
+    "html_url": "https://github.com/anotherjesse",
+    "followers_url": "https://api.github.com/users/anotherjesse/followers",
+    "following_url": "https://api.github.com/users/anotherjesse/following{/other_user}",
+    "gists_url": "https://api.github.com/users/anotherjesse/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/anotherjesse/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/anotherjesse/subscriptions",
+    "organizations_url": "https://api.github.com/users/anotherjesse/orgs",
+    "repos_url": "https://api.github.com/users/anotherjesse/repos",
+    "events_url": "https://api.github.com/users/anotherjesse/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/anotherjesse/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "roland",
+    "id": 28,
+    "node_id": "MDQ6VXNlcjI4",
+    "avatar_url": "https://avatars.githubusercontent.com/u/28?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/roland",
+    "html_url": "https://github.com/roland",
+    "followers_url": "https://api.github.com/users/roland/followers",
+    "following_url": "https://api.github.com/users/roland/following{/other_user}",
+    "gists_url": "https://api.github.com/users/roland/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/roland/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/roland/subscriptions",
+    "organizations_url": "https://api.github.com/users/roland/orgs",
+    "repos_url": "https://api.github.com/users/roland/repos",
+    "events_url": "https://api.github.com/users/roland/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/roland/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "lukas",
+    "id": 29,
+    "node_id": "MDQ6VXNlcjI5",
+    "avatar_url": "https://avatars.githubusercontent.com/u/29?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/lukas",
+    "html_url": "https://github.com/lukas",
+    "followers_url": "https://api.github.com/users/lukas/followers",
+    "following_url": "https://api.github.com/users/lukas/following{/other_user}",
+    "gists_url": "https://api.github.com/users/lukas/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/lukas/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/lukas/subscriptions",
+    "organizations_url": "https://api.github.com/users/lukas/orgs",
+    "repos_url": "https://api.github.com/users/lukas/repos",
+    "events_url": "https://api.github.com/users/lukas/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/lukas/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "fanvsfan",
+    "id": 30,
+    "node_id": "MDQ6VXNlcjMw",
+    "avatar_url": "https://avatars.githubusercontent.com/u/30?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/fanvsfan",
+    "html_url": "https://github.com/fanvsfan",
+    "followers_url": "https://api.github.com/users/fanvsfan/followers",
+    "following_url": "https://api.github.com/users/fanvsfan/following{/other_user}",
+    "gists_url": "https://api.github.com/users/fanvsfan/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/fanvsfan/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/fanvsfan/subscriptions",
+    "organizations_url": "https://api.github.com/users/fanvsfan/orgs",
+    "repos_url": "https://api.github.com/users/fanvsfan/repos",
+    "events_url": "https://api.github.com/users/fanvsfan/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/fanvsfan/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "tomtt",
+    "id": 31,
+    "node_id": "MDQ6VXNlcjMx",
+    "avatar_url": "https://avatars.githubusercontent.com/u/31?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/tomtt",
+    "html_url": "https://github.com/tomtt",
+    "followers_url": "https://api.github.com/users/tomtt/followers",
+    "following_url": "https://api.github.com/users/tomtt/following{/other_user}",
+    "gists_url": "https://api.github.com/users/tomtt/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/tomtt/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/tomtt/subscriptions",
+    "organizations_url": "https://api.github.com/users/tomtt/orgs",
+    "repos_url": "https://api.github.com/users/tomtt/repos",
+    "events_url": "https://api.github.com/users/tomtt/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/tomtt/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "railsjitsu",
+    "id": 32,
+    "node_id": "MDQ6VXNlcjMy",
+    "avatar_url": "https://avatars.githubusercontent.com/u/32?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/railsjitsu",
+    "html_url": "https://github.com/railsjitsu",
+    "followers_url": "https://api.github.com/users/railsjitsu/followers",
+    "following_url": "https://api.github.com/users/railsjitsu/following{/other_user}",
+    "gists_url": "https://api.github.com/users/railsjitsu/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/railsjitsu/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/railsjitsu/subscriptions",
+    "organizations_url": "https://api.github.com/users/railsjitsu/orgs",
+    "repos_url": "https://api.github.com/users/railsjitsu/repos",
+    "events_url": "https://api.github.com/users/railsjitsu/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/railsjitsu/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "nitay",
+    "id": 34,
+    "node_id": "MDQ6VXNlcjM0",
+    "avatar_url": "https://avatars.githubusercontent.com/u/34?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/nitay",
+    "html_url": "https://github.com/nitay",
+    "followers_url": "https://api.github.com/users/nitay/followers",
+    "following_url": "https://api.github.com/users/nitay/following{/other_user}",
+    "gists_url": "https://api.github.com/users/nitay/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/nitay/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/nitay/subscriptions",
+    "organizations_url": "https://api.github.com/users/nitay/orgs",
+    "repos_url": "https://api.github.com/users/nitay/repos",
+    "events_url": "https://api.github.com/users/nitay/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/nitay/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "kevwil",
+    "id": 35,
+    "node_id": "MDQ6VXNlcjM1",
+    "avatar_url": "https://avatars.githubusercontent.com/u/35?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/kevwil",
+    "html_url": "https://github.com/kevwil",
+    "followers_url": "https://api.github.com/users/kevwil/followers",
+    "following_url": "https://api.github.com/users/kevwil/following{/other_user}",
+    "gists_url": "https://api.github.com/users/kevwil/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/kevwil/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/kevwil/subscriptions",
+    "organizations_url": "https://api.github.com/users/kevwil/orgs",
+    "repos_url": "https://api.github.com/users/kevwil/repos",
+    "events_url": "https://api.github.com/users/kevwil/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/kevwil/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "KirinDave",
+    "id": 36,
+    "node_id": "MDQ6VXNlcjM2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/36?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/KirinDave",
+    "html_url": "https://github.com/KirinDave",
+    "followers_url": "https://api.github.com/users/KirinDave/followers",
+    "following_url": "https://api.github.com/users/KirinDave/following{/other_user}",
+    "gists_url": "https://api.github.com/users/KirinDave/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/KirinDave/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/KirinDave/subscriptions",
+    "organizations_url": "https://api.github.com/users/KirinDave/orgs",
+    "repos_url": "https://api.github.com/users/KirinDave/repos",
+    "events_url": "https://api.github.com/users/KirinDave/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/KirinDave/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "jamesgolick",
+    "id": 37,
+    "node_id": "MDQ6VXNlcjM3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/37?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/jamesgolick",
+    "html_url": "https://github.com/jamesgolick",
+    "followers_url": "https://api.github.com/users/jamesgolick/followers",
+    "following_url": "https://api.github.com/users/jamesgolick/following{/other_user}",
+    "gists_url": "https://api.github.com/users/jamesgolick/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/jamesgolick/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/jamesgolick/subscriptions",
+    "organizations_url": "https://api.github.com/users/jamesgolick/orgs",
+    "repos_url": "https://api.github.com/users/jamesgolick/repos",
+    "events_url": "https://api.github.com/users/jamesgolick/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/jamesgolick/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "atmos",
+    "id": 38,
+    "node_id": "MDQ6VXNlcjM4",
+    "avatar_url": "https://avatars.githubusercontent.com/u/38?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/atmos",
+    "html_url": "https://github.com/atmos",
+    "followers_url": "https://api.github.com/users/atmos/followers",
+    "following_url": "https://api.github.com/users/atmos/following{/other_user}",
+    "gists_url": "https://api.github.com/users/atmos/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/atmos/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/atmos/subscriptions",
+    "organizations_url": "https://api.github.com/users/atmos/orgs",
+    "repos_url": "https://api.github.com/users/atmos/repos",
+    "events_url": "https://api.github.com/users/atmos/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/atmos/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "errfree",
+    "id": 44,
+    "node_id": "MDEyOk9yZ2FuaXphdGlvbjQ0",
+    "avatar_url": "https://avatars.githubusercontent.com/u/44?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/errfree",
+    "html_url": "https://github.com/errfree",
+    "followers_url": "https://api.github.com/users/errfree/followers",
+    "following_url": "https://api.github.com/users/errfree/following{/other_user}",
+    "gists_url": "https://api.github.com/users/errfree/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/errfree/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/errfree/subscriptions",
+    "organizations_url": "https://api.github.com/users/errfree/orgs",
+    "repos_url": "https://api.github.com/users/errfree/repos",
+    "events_url": "https://api.github.com/users/errfree/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/errfree/received_events",
+    "type": "Organization",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "mojodna",
+    "id": 45,
+    "node_id": "MDQ6VXNlcjQ1",
+    "avatar_url": "https://avatars.githubusercontent.com/u/45?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mojodna",
+    "html_url": "https://github.com/mojodna",
+    "followers_url": "https://api.github.com/users/mojodna/followers",
+    "following_url": "https://api.github.com/users/mojodna/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mojodna/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mojodna/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mojodna/subscriptions",
+    "organizations_url": "https://api.github.com/users/mojodna/orgs",
+    "repos_url": "https://api.github.com/users/mojodna/repos",
+    "events_url": "https://api.github.com/users/mojodna/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mojodna/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  {
+    "login": "bmizerany",
+    "id": 46,
+    "node_id": "MDQ6VXNlcjQ2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/46?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/bmizerany",
+    "html_url": "https://github.com/bmizerany",
+    "followers_url": "https://api.github.com/users/bmizerany/followers",
+    "following_url": "https://api.github.com/users/bmizerany/following{/other_user}",
+    "gists_url": "https://api.github.com/users/bmizerany/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/bmizerany/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/bmizerany/subscriptions",
+    "organizations_url": "https://api.github.com/users/bmizerany/orgs",
+    "repos_url": "https://api.github.com/users/bmizerany/repos",
+    "events_url": "https://api.github.com/users/bmizerany/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/bmizerany/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  }
+]
+  return (
+    <div>
+      <h1>helo from sample code</h1>
+        <Child1 data={userData}/>
+    </div>
+  )
+}
+
+export default Samplecode
+
+
+---------
+|23/10/25|
+---------
+
+CONDITIONAL STATEMENT OR RENDERING
+----------------------------------
+
+Conditional Rendering : in react refers to the ability to render different components or elements based upon the conditions.
+in react you can use CR to display different UI on the display based upon the state of ur application, User intereaction or any other conditions.
+
+THERE ARE SEVERAL WAYS TO IMPLIMENT CR
+--------------------------------------
+1.if else
+2.switch
+3.short-circuiting
+4.ternary operator
+
+
+SHORT CIRCUITING
+-----------------
+SC : sc evaluation is a js logical operation were expressions are evaluated from left to right and the evaluations stops as soon as the final result is determined.
+
+we can perform SC in 2 ways
+--------------------------
+1.logical and -&&
+2.logical or - ||
+
+
+OPTIONAL CHAINING(?.):
+------------------
+OC OPERATOR (?.) The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called
+ using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
+
+
+NULLISH operator
+
+
+---------
+|24/10/25|
+---------
+
+
+JS INCREMENT EXAMPLE:
+---------------------
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>use-state</title>
+  </head>
+  <body>
+    <!-- <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script> -->
+
+    <H1 id="digit">0</H1>
+    <BUtton id="btn">INCRE</BUtton>
+
+    <script>
+      console.log("hello")
+
+      let digit=document.getElementById("digit");
+      let btn=document.getElementById("btn")
+      console.log(Number(digit));
+
+      console.log(digit);
+      console.log(btn);
+     
+      btn.addEventListener("click",()=>{
+        digit.textContent=Number(digit.textContent)+1;
+      })
+      
+      
+
+    </script>
+  </body>
+</html>
+
+
+
+
+*************************************************************
+HOOKS
+-----
+it is a function
+
+to use usestate() import it
+
+
+
+
+USESTATE()
+----------
+Eg:
+===
+
+import React, { useState } from 'react'
+import LoggedIn from './Component/LoggedIn';
+import NotLoggedIn from './Component/NotLoggedIn';
+
+const App = () => {
+    let [isLoggedin, SetisLoggedin]= useState(true);
+    let userObj={
+        username:"ms.Logi",
+        favouriteShow: "tom & jerry",
+        permission:"you are allowed to explore the content",
+    };
+    // conditional rendering
+    // if (isLoggedin){
+    //     return <LoggedIn data={userObj}/>
+    // }else{
+    //     return <NotLoggedIn/>
+    // }
+console.log(isLoggedin);
+function handlebutton(){
+    SetisLoggedin(!isLoggedin)
+}
+return(
+    <>
+    {isLoggedin ? <LoggedIn data={userObj}/> : <NotLoggedIn/>}
+    <button onClick={handlebutton}>{isLoggedin ? "Logout" : "Login"}</button>
+    
+    </>
+)
+  
+}
+
+export default App
+
+
+
+import React from 'react'
+
+const LoggedIn = (props) => {
+  return (
+    <div>
+        <h1>{props.data.username}</h1>
+        <h2>{props.data.favouriteShow}</h2>
+        <h3>{props.data.permission}</h3>
+    </div>
+  )
+}
+
+export default LoggedIn
+
+
+import React from 'react'
+
+const NotLoggedIn = () => {
+  return (
+    <div>
+        <h1>you are not allowed to explore the content</h1>
+    </div>
+  )
+}
+
+export default NotLoggedIn
+
+
+
+
+---------
+|27/10/25|
+---------
+CALLBACK FUNCTION
+
+
+
+---------
+|28/10/25|
+---------
+FORMS HANDLING :
+----------------
+refers to the process of managing user input from HTML forms with react applications, ensuring data integrity and a responsive user experience.
+
+we can handle form in react in two ways:
+1.controlled form : each and every form input managed by react state. we can create CF using usestate hook. 
+	the form data is stored in the components state using USESTATE HOOK
+2.uncontrolled form : in react a way of managing form data where the form elements maintain their own state.
+ =>instead of using react state control the input values, uncontrolled components rely on the DOM to handle the form data.
+ =>we can create UNF using USEREF HOOKS.
+
+
+
+---------
+|29/10/25|
+---------
+USE REF
+=======
+Ur is a hook provided by react only which is used to create a mutable refrence that persists across renders without causing re-renders.
+it access and manipulate DOM elements such has focusing an input field.
+it stores previous state values without trigering re renders.
+it keeps drag of intervals, timers or event listeners.
+
+syntax:
+--------------------------------------------
+import { useRef } from "react";             |
+                                            |
+const refContainer = useRef(initialValue);  |
+--------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+ DIFF BETWEEN USE REF AND USE STAE                  |                                                                   |
+USE REF : * IT doesnot rerender the componet        |     use stste: * it renders the componet based on state change.  |
+          * it is used for dom manupulation.        |               * it doesnot change the value from directly dom.  |
+-----------------------------------------------------------------------------------------------------------------------
+
+Eg:
+---
+
+//CSS codes starts here
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.formContainer {
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; border-radius: 20px; gap: 12px; background-color: blueviolet; } form > label, input, button { width: 80%; border-radius: 6px; color: #fff; /* background-color: blue; */ }  form > input { padding: 10px; border: 1px solid gainsboro; outline: none; box-shadow: 2px 5px 2px rgba(220, 220, 220, 0.209); } form > button { padding: 10px; outline: none; box-shadow: 2px 2px 2px rgb(179, 96, 221); border: none; background-color: blueviolet; border: 2px solid rgb(62, 0, 143); }    Form code starts bere   // import React, { useRef } from "react"; // import { useState } from "react";  // const RevisionUseref = () => { //   let countRef = useRef(0); //   let [state, setState] = useState(0); //   console.log(countRef); //   function incre() { //     countRef.current = countRef.current + 1; //     console.log(countRef.current); //     setState(state + 1); //     // console.log(state); //   } //   return ( //     <div> //       <h1>{countRef.current}</h1> //       <button onClick={incre}>Increment</button> //     </div> //   ); // };  // export default RevisionUseref;  // import { useRef } from "react";  // function RevisionUseref() { //   const inputRef = useRef(null);  //   const handleFocus = () => { //     if (inputRef.current) { //       inputRef.current.focus(); //     } //     console.log("Hello"); //   };  //   return ( //     <div>
+//       <input type="text" ref={inputRef} />
+//       <button onClick={handleFocus}>Focus Input</button>
+//     </div>
+//   );
+// }
+
+// export default RevisionUseref;
+
+import React, { useRef } from "react";
+
+const RevisionUseref = () => {
+  let userNameRef = useRef(null);
+  let passwordRef = useRef(null);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(e);
+    let email = userNameRef.current.value;
+    let password = passwordRef.current.value;
+    console.log(email, password);
+  }
+  return (
+    <div className="formContainer">
+      <form onSubmit={handleSubmit}>
+        <h2>Login Form</h2>
+        <label htmlFor="username">Enter Your email or username</label>
+        <input
+          type="text"
+          placeholder="username / email"
+          id="username"
+          ref={userNameRef}
+        />
+        <label htmlFor="password">Enter Your password</label>
+        <input
+          type="password"
+          placeholder="username / email"
+          id="password"
+          ref={passwordRef}
+        />
+        <button>Submit</button>
+      </form>
+    </div>
+  );
+};
+
+export default RevisionUseref;
+
+
+
+
+---------
+|30/10/25|
+---------
+DEFAULT PROPS
+=============
+Eg:
+===
+
+import React from 'react'
+import Child from './Child'
+
+const App = () => {
+  return (
+    <div>
+        <Child
+        name="logi"
+        age={24}
+        isMarried={true}
+        isStudent={true}
+        
+        />
+        <br />
+        <Child/>
+    </div>
+  )
+}
+
+export default App
+
+
+
+import React from 'react'
+
+const Child = ({
+    name="loki",
+    age=21,
+    isMarried="yes",
+    isStudent="demo",
+})=>{
+  return (
+    
+    <div>
+        <h1>Name : {name}</h1>
+        <h2>Age : {age}</h2>
+        <h2>isMarried :{isMarried? "yes" : "no"}</h2>
+        <h2>isStudent : {isStudent ? "yes":"no"}</h2>
+    </div>
+  )
+}
+
+export default Child
+
+
+
+*********************************************
+ASSIGNMENT
+*********************************************
+
+import './index.css'
+import React, { useRef } from 'react'
+import { FaRegUser } from "react-icons/fa6";
+import { HiOutlineMail } from "react-icons/hi";
+import { MdOutlinePhoneInTalk } from "react-icons/md";
+import { CiLocationOn } from "react-icons/ci";
+
+
+const App = () => {
+        let nameRef = useRef(null);
+        let emailRef = useRef(null);
+        let phoneRef = useRef(null);
+        let dobRef=useRef(null);
+        let locationRef=useRef(null);=-
+
+        function handlesubmit(e){
+            e.preventDefault();
+            console.log(e);
+            let name = nameRef.current.value;
+            let email = emailRef.current.value;
+            let phone = phoneRef.current.value;
+            let dob = dobRef.current.value;
+            let location = locationRef.current.value;
+            console.log(name,email,phone,dob,location)
+        }
+  return (
+    <div className='formcontainer'>
+        <form className='formdiv' onSubmit={handlesubmit}>
+            <h4>REGISTER FORM</h4>
+            {/* name */}
+            <label htmlFor="name">Name :</label>
+            <div className='name'>
+                <div className="icons">
+                    <FaRegUser />
+                </div>
+                {/* email */}
+                <input  type="text"  id='name' ref={nameRef} placeholder='Type your Name' />
+            </div>
+            <label htmlFor="email">Email :</label>
+            <div className="email">
+                <div className="icons">
+                <HiOutlineMail />
+                </div>
+                <input type="mail" id='email' ref={emailRef} placeholder='Type your Email' />
+            </div>
+                {/*phone */}
+            <label htmlFor="phone">Phone :</label>
+            <div className="phone">
+                <div className="icons">
+                <MdOutlinePhoneInTalk />
+            </div>
+            <input type="tel" id='phone' ref={phoneRef} placeholder='Type your Phone' />
+            </div>
+            {/* dob */}
+            <label htmlFor="">DOB :</label>
+            <input type="date" id='dob' ref={dobRef} placeholder='Select your DOB' />
+            {/* location */}
+            <label htmlFor="">Location :</label>
+            <div className="location">
+                <div className="icons">
+                    <CiLocationOn />
+                </div>
+            <input type="text" id='location' ref={locationRef} placeholder='Type your Location' />
+
+            </div>
+            <button>Submit</button>
+        </form>
+    </div>
+  )
+}
+
+export default App
+
+*******************************************************************
+REGISTER FORM CLONE
+********************************************************8
+import React from 'react'
+import './index.css'
+import { useRef } from 'react';
+
+
+const App = () => {
+    let titleRef=useRef(null);
+    let fnameRef=useRef(null);
+    let lnameRef=useRef(null);
+    let positionRef=useRef(null);
+    let companyRef=useRef(null);
+    let businessarenaRef=useRef(null);
+    let employeesRef=useRef(null);
+    let streetRef=useRef(null);
+    let additionalinfoRef=useRef(null);
+    let zipcodeRef=useRef(null);
+    let placeRef=useRef(null);
+    let countryRef=useRef(null);
+    let codeRef=useRef(null);
+    let phoneRef=useRef(null);
+    let emailRef=useRef(null);
+    let acceptRef=useRef(null);
+
+    function handleRegister(e){
+        e.preventDefault();
+        let title = titleRef.current.value;
+        let fname = fnameRef.current.value;
+        let lname = lnameRef.current.value;
+        let Position = positionRef.current. value;
+        let company = companyRef.current.value;
+        let businessarena = businessarenaRef.current.value;
+        let employees = employeesRef.current.value;
+        let street = streetRef.current.value;
+        let additionalinfo = additionalinfoRef.current.value;
+        let Zipcode = zipcodeRef.current.value;
+        let place = placeRef.current.value;
+        let country = countryRef.current.value;
+        let code = codeRef.current.value;
+        let phone = phoneRef.current.value;
+        let email = emailRef.current.value;
+        let accept = acceptRef.current.value;
+    }
+
+  return (
+    <div className='formcontainer'>
+        <div className="form-content">
+            <div className="left">
+                <form >
+                    <h3>General Information</h3>
+                    <input list="titles" placeholder='Title' ref={titleRef} />
+                    <datalist id="titles">
+                        <option value="Developer" />
+                        <option value="Tester" />
+                    </datalist>
+                    <div className="name">
+                        <input type="text" placeholder='First Name' ref={fnameRef}/>
+                        <input type="text" placeholder='Lat Name' ref={lnameRef}/>
+                    </div>
+                    
+                    <input type="text" placeholder='Position' ref={positionRef}/>
+                    <input type="text" placeholder='Company' ref={companyRef} />
+
+                    <div className="name">
+                        <input type="text" placeholder='Business Arena' ref={businessarenaRef}/>
+                        <input type="text" placeholder='Employees' ref={employeesRef}/>
+
+                    </div>
+                    
+                </form>
+            </div>
+            <div className="right">
+                <form action="">
+                    <h3>Contact Details</h3>
+                    <input type="text" placeholder='Street + Nr' ref={streetRef}/>
+                    <input type="text" placeholder='Aditional Information' ref={additionalinfoRef}/>
+                    <div className="home">
+                        <input type="text" placeholder='Zipcode' ref={zipcodeRef}/>
+                        <input type="text" placeholder='Place' ref={placeRef}/>
+                    </div>
+                    
+                    <input type="text" placeholder='Country' ref={countryRef}/>
+                    <div className="home">
+                        <input type="text" placeholder='Code +' ref={codeRef}/>
+                        <input type="text" placeholder='Phone Number' ref={phoneRef}/>
+
+                    </div>
+                    
+                    <input type="text" placeholder='Your Email' ref={emailRef}/>
+                    <label htmlFor="">
+                        <input type="checkbox" ref={acceptRef} /> I do accept the <a href="">terms and conditions</a> of your site
+                    </label>
+                    <button>Register Badge</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default App
+
+???????????????????????
+
+.form-content{
+    height: 500px;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left{
+    background-color: #fff;
+    width: 50%;
+    height: 100%;
+}
+.right{
+   background: linear-gradient(135deg, #2b2bff, #462fda);
+    width: 50%;
+    height: 100%;
+}
+.right>form{
+    color: #fff;
+}
+form{
+    padding: 25px;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+    text-decoration: underline;
+}
+.left>form>h3{
+    color: #6caded
+}
+form>input{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: none;
+    border-bottom: 1.5px solid #d6d6d8;
+  
+}
+.left>form>.name{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+form>.name>input{
+    width: 48%;
+    padding: 15px;
+    border: none;
+    background: none;
+    border-bottom: 1.5px solid #d6d6d8;
+}
+.right>form>.name{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+.right>form>.name>input{
+    border: none;
+    background: none;
+    padding: 20px;
+}
+button{
+    background-color: #fff;
+    padding: 7px;
+    color: black;
+    border-radius: 30px;
+    border: none;
+}
+.home>input{
+    padding: 10px;
+    width: 47%;
+    /* display: flex; */
+    margin: 10px 10px 0 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid gainsboro;
+    /* flex-direction: row; */
+}
+.home>input::placeholder{
+    color: red;
+}
+
+ --------
+|11/11/25|
+ --------
+
+instal library : formik
+
+
+---------
+|12/11/25|
+---------
+for form validation install
+----->npm i yup
+-----> npm i formik --save
+
+import { useFormik } from "formik";
+import validateInput from "./FormSchema";
+import { useState } from "react";
+
+const initialdata={
+    username:"",
+    password:"",
+};
+
+const App=()=>{
+    let [showPassword, setshowPassword]= useState(false);
+    const formData = useFormik({
+        initialValues: initialdata,
+        validationSchema: validateInput,
+        onSubmit:(data) =>data.value,    
+})
+let {handleChange,handleSubmit,values,errors,touched}= formData
+console.log(errors);
+console.log(values);
+
+  return (
+    <div className='form-container' >
+        <form action="" onSubmit={handleSubmit}>
+            <h2>Login</h2>
+            <div className="input">
+                <input type="text" 
+                       name='username' 
+                       placeholder='username' 
+                       onChange={handleChange}/>
+                     {touched ? <p>{errors.username}</p> : null}
+                <input type={showPassword ? 'text':'password'} 
+                    name='password' 
+                    placeholder='Password' 
+                    onChange={handleChange}/>
+                    {touched ? <p>{errors.password}</p> : null}
+                    <button onClick={()=>setshowPassword(!showPassword)}>{!showPassword ? 'showpassword' : 'hidepassword'}</button>
+            </div>
+            
+            
+            <button type='submit'>Sign In</button>
+            
+
+        </form>
+    </div>
+  )
+}
+
+export default App
+
+
+
+
+
+
+
+FormSchema.jsx
+*******************
+
+
+import * as validation from "yup"
+const validateInput=validation.object({
+    username: validation.string().min(5).required(),
+    password:validation.string().min(8).required(),
+})
+export default validateInput;
+
+
+
+---------
+|17/11/25|
+---------
+
+CONTEXT API
+************
+=>the context API is a feature in react that enables sharing data between components without the need of explicitly pass props downthrough every levelof components.
+this is a problem referd as prop-drilling to avoid this onle we have context api.
+=> it provides a way to manage and access global or shared state across different part of your applications.
+=> it i a feature , which can used to pass the data to child directly.
+
+Key Features
+------------
+1.avoid prop drilling
+2.global data sharing
+3.dynamic updates
+
+UseCase:
+--------
+1.theming
+2.user authentication
+3.language switching
+
+HOW TO SHARE THE DATA GLOBALLY
+******************************
+=> to share the data globaly first we need to create context.
+=> create context is a menthod provided by react. in this we get our provider and consumer.
+=> provider is responsible for passing the data.
+=> to receive this data we need to make the component  as a children for provider.
+=> we can get the data with the help of useContext.
+=> here we need to pass ou created context
+
+Here we have 2 things:
+......................
+1.provider
+2.consumer
+
+=>
+
+benefits:
+--------
+1.code maintenence
+2.reusability
+3.readability
+
+
+USEEFFECT:
+**********
+=> it is a hook in react that enable functional component to perform side effects.
+=> side effects are operations that interact with outside react such as fetching datas directly updating the dom setting 
+subscriptions or event listeners etc.
+
+which allows us to perform side effects: means fetching data.
+
+HOW YOUR USE EFFECT WORKS:
+==========================
+* it accept one function like callback function
+* this function contains the code for your side effects.
+* react will execute this function after every render by default or based on the specific dependencies.
+
+DEPENDENCIES
+============
+
+
+
+HOW MANY WAYS:
+************
+
+1.with dependency([a]):-
+------------------------
+executes the effects only after provided dependency changes
+
+2.empty dependency([]):-
+------------------------
+executes the effect only one time
+
+3.without dependency:-
+-----------------------
+executes the effect after every render.
+
+
+CLEAN UP FUNCTION:(Optional)
+----------------------------
+
+* the fun passed to use effect can optional return another function.
+* this return function is a cleanup function which react will execute before the component unmounts.
+or before the effect reruns due to changed dependencies.
+* it is crusial for preventing memory links.
+
+
+SYNTAX:
+-------
+
+useEffect(()=>{
+
+return()=>{
+   cleanup function
+}
+},[]) []
+  
+
+---------
+|21/11/25|
+---------
+
+ARIA - Attribute(html topic)
+****************************
+
+
+
+
+PROJECT Weather :
+*****************
+
+import React from 'react'
+
+const ShowData = ({data}) => {
+    console.log(data)
+    // const icon = data?.weather[0].icon 
+
+    let bgVdo = null;
+    let bgImg = 'src\Assets\weather.jpg'
+
+    if (weatherData){
+        const condition = weatherData.weather?.[0]?.main;
+
+        if (id >= 200 && id<300){
+            bgVdo= "src/Assets/Thunder.mp4"
+        }
+        else if (id >= 300 && id<400){
+            bgVdo="src\Assets\Drizzle.mp4"
+        }
+        else if (id >= 500 && id < 600){
+            bgVdo="src\Assets\Rainy.mp4"
+        }
+        else if (id >= 600 && id < 700){
+            bgVdo="src\Assets\Snow.mp4"
+        }
+        else if (id >= 700 && id < 800){
+            bgVdo="src\Assets\Fog.mp4"
+        }
+        else if (id > 800 && id < 805){
+            bgVdo="src\Assets\Cloudy.mp4"
+        }
+        else if (id === 800){
+            bgVdo="src\Assets\ClearSky.mp4"
+        }
+        else{
+            bgImg="src\Assets\weather.jpg"
+        }
+    }
+
+  return (
+    <div>
+        <h1>City: {data?.name}</h1>
+        <h1>Weather: {data?.weather[0].main}</h1>
+        <h1>Temperature: {data?.main.temp}</h1>
+        {/* <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt=""  /> */}
+
+    </div>
+  )
+}
+
+export default ShowData
+
+
+
+
+---------
+|25/11/25|
+---------
+
+MODULE CSS
+***********
+which is used to style the files/component seperately.
+=>in global css we have a single css file for all the component but in module css we have a seperate css files for each and every component.
+=>css module are a mordern approach to styling in web dvelopment, designed to solve issues related to global class name conflicts and 
+style leakage.
+
+FEATURE :
+=========
+=>Automatic Scope Management: With CSS Modules, styles are scoped to the component by default. This reduces the risk of styles accidentally affecting other parts of the app, which is especially helpful when multiple developers are working on different features.
+=>Unique Class Names: Tools like Webpack and PostCSS automatically generate unique, hashed class names during the build. This takes the burden off developers from having to come up with naming conventions (like BEM) and reduces the chances of mistakes.
+=>Easier Debugging: Since the class names are scoped and unique, it’s much easier to identify where a styling issue is coming from. Tools like React DevTools make it even simpler by linking CSS Modules to their corresponding components.
+=>Smooth Integration with JavaScript Frameworks: CSS Modules work seamlessly with modern JavaScript frameworks like React, Vue, and Svelte. You can import your styles directly into the components, making it easier to manage both the structure and appearance in one place.
+=>Better Performance: Since CSS Modules only apply styles to the relevant components, they help minimize unused CSS in the final build. This, along with techniques like tree-shaking and CSS purging, can lead to performance improvements.
+=>Fewer Global Side Effects: By scoping styles to individual components, CSS Modules prevent the usual problems with global styles interfering with each other. This makes it much easier to build reusable UI components without worrying about conflicts.
+eg:
+---
+
+import React from 'react'
+import style from './app.module.css'
+
+const App = () => {
+    console.log(style)
+  return (
+    <div className={style.mydiv}>App
+    <li>hello</li>
+    <li>hi</li>
+    <li id={style.mylist}>hello</li>
+    <li>hi</li>
+    </div>
+  )
+}
+
+export default App
+
+.mydiv{
+    background-color: blueviolet;
+    color: azure;
+}
+#mylist{
+    background-color: black;
+}
+
+
+
+eg2
+---
+import React, { useState } from "react";
+import { FaGoogle } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
+import { FaFacebook } from "react-icons/fa";
+import styles from "./Login.module.css";
+
+const Login = () => {
+  let [formdata, setformdata] = useState({
+    username: "",
+    password: "",
+  });
+
+  let handlechange = (e) => {
+    let { name, value } = e.target;
+    setformdata({ ...formdata, [name]: value });
+  };
+  let handlesubmit = (e) => {
+    e.preventDefault();
+    console.log(formdata);
+    setformdata({
+      username: "",
+      password: "",
+    });
+  };
+  return (
+    <div className={styles.container}>
+      <form className={styles.form} onSubmit={handlesubmit}>
+        <h1>Login here</h1>
+
+        <input
+          type="text"
+          name="username"
+          placeholder="username"
+          value={formdata.username}
+          onChange={handlechange}
+        />
+        <input
+          type="password"
+          name="password"
+          value={formdata.password}
+          placeholder="Enter Password"
+          onChange={handlechange}
+        />
+
+        <button>Login</button>
+
+        <div className={styles.divider}>
+          <div></div>
+          <p>or</p>
+          <div></div>
+        </div>
+
+        <div className={styles.socialIcons}>
+          <FaGoogle title="google" />
+          <FaGithub title="github" />
+          <FaFacebook title="facebook" />
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default Login;
+
+
+---------
+|26/11/25|
+---------
+
+FORM HANDLING
+*************
+ FH is the process of collecting,processing and validating user input submited to a form.
+we can do the form handling in 2 ways:
+1.controoled forms
+2.uncontrolled forms
+
+1.controlled components/forms:
+-----------------------------
+* in CC react is responsible for controlling the form data.
+the value of each form element is stored in the components state and every change triggers the re-rendering for the component.
+* it provides a clear and predictable way to manage form data align for easy validation and manipulation of input values within the react component.
+* here we need to use OnChange event for each and every input to drag the data.
+
+HOW TO CREATE A CONTROLLED FORM
+================================
+function controlled=()=>{
+let [ formdata, setformdata]=usestate({
+    name:"",
+    password:"",
+})
+}
+handlechange=(e)=>{
+let[name,value]=e.target
+setformdata({...formdata,[name]:value})
+}
+
+2.UNCONTROLLED C/FORM
+---------------------
+* in this approach the form data is handled by the Dom itself similar to traditional html forms.
+* react components do not directly controll the input values through state.
+* instead u can use refs to directly access the Dom elements and retrieve its values.
+* uncontrollend components can be very simpler for very basic forms were u dont need your time validation are intricate state management.
+
+HOW TO CREATE A UNCONTROLLED FORM
+=================================
+
+
+
+
+----------
+|26/11/25|
+----------
+
+HIGER ORDER FUNCTION
+===================
+a function which accepts another function as an argument is called as higher order function
+HOC are an advanced technique in react that is used for reusing component logic.
+it is the function that takes the original component and return the new enhanced component.
+
+=>it doesnt modify the input component directli. isteadt they return as an new component with enhanced behavior.
+=>they allow you use component logic across multiple component without duplicating it.
+=>they are pure function that accept a component and return in new component.
+
+
+
+Eg:
+---
+console.log(result(sum,3,4))
+
+=>......................................
+import React from 'react'
+
+const App = () => {
+    function hoc(){
+        console.log('im hoc')
+    }
+    function callback(){
+        console.log('im callback')
+    }
+    hoc(callback())------------>this is hoc
+  return (
+    <div>App</div>
+  )
+}
+
+export default App
+
+
+CALL BACK FUNCTION
+==================
+a function which is passed as an argument
+
+Eg:
+---
+import React from 'react'
+
+const App = () => {
+    function hoc(){
+        console.log('im hoc')
+    }
+    function callback(){
+        console.log('im callback')------------>this is call back function
+    }
+    hoc(callback())
+  return (
+    <div>App</div>
+  )
+}
+
+export default App
+ 
+
+
+----------
+|29/11/25|
+----------
+
+HIGHER ORDER FUNCTION
+---------------------
+
+import React, { useState } from 'react'
+
+const WithHOC = (OriginalComponent) => {
+    const NewComponent=()=>{
+        let [count,setcount]=useState(0);
+
+        let handleClick = () => {
+            setcount(count+1)
+        }
+        return <OriginalComponent count={count} handleClick={handleClick} />
+    }
+    return NewComponent;
+  
+}
+
+export default WithHOC
+
+-------------------------------------------------
+import WithHOC from "../HOC/WithHOC"
+
+
+const HoverCounter = ({count,handleClick}) => {
+   
+  return (
+    <div>
+        
+        <h1 onMouseOver={handleClick}>increse by hover: {count}</h1>
+    </div>
+  )
+}
+
+export default WithHOC(HoverCounter)
+
+-------------------------------------------
+import WithHOC from '../HOC/WithHOC'
+
+const ClickCounter = ({count,handleClick}) => {
+   
+  return (
+    <div>
+        <h1>{count}</h1>
+        <button onClick={handleClick}>increse by click</button>
+    </div>
+  )
+}
+
+export default WithHOC(ClickCounter)
+
+
+
+----------
+|8/12/25|
+----------
+
+React memo
+------------
+we can send only primitive data type only.
+
+
+
+
+eg:
+===
+
+import React, { useState } from 'react'
+import Child from './Child'
+
+const Parent = () => {
+    let [state,setstate]=useState(0)
+
+    function handlestate () {
+        setstate(state+1)
+    }
+    console.log('im parent')
+  return (
+    <div>
+        <h1>{state}</h1>
+        <button onClick={handlestate}>incre</button>
+        <Child data={"logi"} />
+    </div>
+  )
+}
+
+export default Parent         
+
+
+
+
+import React from 'react'
+
+const Child = () => {
+    console.log('im child component')
+  return (
+    <div>Child</div>
+  )
+}
+
+export default React.memo(Child)
+
+
+============================================================
+
+----------
+|12/12/25|
+----------
+
+ROUTING
+--------
+
+INSTALL : npm i react-router-dom
+
+import ReactDom from "react-dom/client";
+import App from "./App";
+ReactDom.createRoot(document.getElementById('root')).render(<App/>)
+
+
+
+import React from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Home from './Components/Home'
+import About from './Components/About'
+
+const App = () => {
+    const router = createBrowserRouter([
+        {
+            path : "/",
+            element: <Home/>,
+        },
+        {
+            path:"/About",
+            element: <About/>
+        },
+    ])
+    console.log(router)
+  return <RouterProvider router={router}/>
+};
+
+export default App;
+
+
+
+
+import React from 'react'
+
+const Home = () => {
+  return (
+    <div>Home</div>
+  )
+}
+
+export default Home
+
+
+
+import React from 'react'
+
+const About = () => {
+  return (
+    <div>About</div>
+  )
+}
+
+export default About
+
+
+EG:
+===
+
+import React from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Home from './Components/Home'
+import About from './Components/About'
+import Layout from './Layout';
+import Contact from './Components/Contact';
+import Login from './Components/Login';
+
+const App = () => {
+    const router = createBrowserRouter([
+        {
+            path : "/",
+            element: <Layout/>,
+        },
+        {
+            path: "/home",
+            element: <Home/>
+        },
+        {
+            path:"/about",
+            element: <About/>
+        },
+        {
+            path:"/contact",
+            element:<Contact/>
+        },
+        {
+            path : "/login",
+            element:<Login/>
+        }
+    ])
+    console.log(router)
+  return <RouterProvider router={router}/>
+};
+
+export default App;
+
+
+import React from 'react'
+import Nav from './NavBar/Nav'
+
+const Layout = () => {
+  return (
+    <div>
+        <Nav/>
+        </div>
+  )
+}
+
+export default Layout
+
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+const Nav = () => {
+  return (
+    <div>
+        <ul>
+            <li>
+                <Link to={'/home'}>Home</Link>
+            </li>
+            <li>
+                <Link to={'/about'}>About</Link>
+
+            </li>
+            <li>
+                <Link to={'/contact'}>Contact Us</Link>
+                </li>
+            <li>
+                <Link to={'/login'}>Login</Link>
+
+            </li>
+        </ul>
+    </div>
+  )
+}
+
+export default Nav
+
+import React from 'react'
+
+const Home = () => {
+  return (
+    <div>Home</div>
+  )
+}
+
+export default Home
+
+import React from 'react'
+
+const About = () => {
+  return (
+    <div>About</div>
+  )
+}
+
+export default About
+
+import React from 'react'
+
+const Contact = () => {
+  return (
+    <div>Contact</div>
+  )
+}
+
+export default Contact
+
+import React from 'react'
+
+const Login = () => {
+  return (
+    <div>Login</div>
+  )
+}
+
+export default Login
+
+
+----------
+|15/12/25|
+----------
+
+OUTLET
+------
+
+outlet is a component which is used to show the children elements.
+
+
+eg:
+---
+import React from 'react'
+import Nav from './Components/Nav'
+import { Outlet } from 'react-router-dom'
+
+const Layout = () => {
+  return (
+    <div>
+        <Nav/>
+        <Outlet/>
+    </div>
+  )
+}
+
+export default Layout
+
+import React from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Layout from './Layout'
+import Contact from './Components/Contact'
+import Login from './Components/Login'
+import Home from './Components/Home'
+import About from './Components/About'
+
+const App = () => {
+    const router = createBrowserRouter([
+        {
+            path:'/',
+            element: <Layout/>,
+            children:[
+                {
+                    path:'/',
+                element:<Contact/>
+                }
+                
+            ]     
+        },
+        {
+            path:'/home',
+            element:<Home/>
+        },
+        {
+            path:'/about',
+            element:<About/>
+        },
+        {
+            path:'/contact',
+            element: <Contact/>
+        },{
+            path:'/login',
+            element:<Login/>
+        },
+    ])
+  return <RouterProvider router={router}/>
+
+}
+
+export default App
+
+
+Note: same content from router like about,home,contact,login
+*********************************************************************
+
+#################################################################################
+SIMPLE FORM---------LOGIN FORM
+************
+
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+const Login = () => {
+  const HandleFormSubmit=(e)=>{
+    e.preventDefault()
+
+    const name= e.target.name.value;
+    const password= e.target.password.value;
+
+   
+    console.log("submited data :", name,password)
+  }
+  return (
+    <div className='container'>
+        <div className='wrapper'>
+            <form className='form-container' onSubmit={HandleFormSubmit}>
+                <h1>Login</h1>
+                <input type="text" placeholder='Enter Name' name='name' required/>
+                
+                <input type="text" placeholder='Enter Password' name='password' required/>
+                                
+                <button type='submit'>Login</button>
+                <div className="link">Don't have an account? <Link to={'/register'}>Register</Link></div>
+            </form>
+        </div>
+    </div>
+  )
+}
+
+export default Login
+============================================================
+-------------------REGISTER FORM
+=================================================================
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+
+const Register = () => {
+        const HandleRegister=(e)=>{
+            e.preventDefault();
+
+            const img= e.target.img.value;
+            const name= e.target.name.value;
+            const mail= e.target.mail.value;
+            const password=e.target.password.value;
+            const gender = e.target.gender.value;
+
+            console.log('Image Url : ',img)
+            console.log('Name :',name)
+            console.log('Email :',mail)
+            console.log('Password :',password)
+            console.log('gender :', gender)
+        }
+  return (
+    <div className='container'>
+        <div className='regwrapper'>
+            <form className='formcontainer' onSubmit={HandleRegister}>
+                <h1>Register</h1>
+            {/* <label className="avatarUpload">
+                <input type="file" accept="image/*" onChange={handleimage} name='img' required/>
+                {!image && <span className="default">+</span>}
+                {image && <div className="preview" style={{ backgroundImage: `url(${image})` }} />}
+            </label> */}
+
+                <input type="url" placeholder='Image Url' name='img' required/>
+
+                <input type="text" placeholder='Name' name='name' required/>
+                <input type="mail" placeholder='Email' name='mail' required/>
+                <input type="password" placeholder='Password' name='password' required/>
+                <select name="gender" required>
+                    <option value="">Select Option</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
+                <button type='submit'>Register</button>
+                <div className="link">Already have an account? <Link to={'/login'}>Login</Link></div>
+
+            </form>
+        </div>
+    </div>
+  )
+}
+
+export default Register
+
+
+
+
+
+
+-----------
+17/12/2025|
+-----------
+
+DATABASE CONNECTION
+===================
+
+=>create a folder called "db"
+=>inside this create a file called "db.json"
+
+=>install----npm install -g json-server
+=>json-server --version
+=>run command : json-server --watch db/db.json --port 5000
+
+
+=>npm i react-router-dom
+=>npm i formik --save
+=>npm i yup
+=>npm i axios //
+=>npm i --save react-toastify  //for form alert
+
+
+03/01/2025
+-----------
+
+
+AXIOS
+=======
+=>axios is used to do http operations in react js.
+=>it simplifies the process of sending asynchronous http requests to rest endpoints, handling responses and performing various n/w related tasks.
+
+Key Features of Axios
+=>Promise-Based: Axios uses Promises, making it easier to handle asynchronous requests with modern JavaScript features like async/await.
+=>Interceptors: Allows you to intercept and modify requests or responses before they are handled by .then() or .catch().
+=>Automatic JSON Data Transformation: Automatically transforms JSON data to JavaScript objects, making data manipulation simpler.
+=>Request and Response Timeout: Enables setting timeouts to avoid hanging requests.
+=>Cancel Requests: Allows cancellation of requests to manage resources effectively.
+=>Error Handling: Provides a structured way to handle HTTP errors using the catch() method.
+=>Supports All HTTP Methods: Including GET, POST, PUT, DELETE, PATCH, and more.
+=>Cross-Site Request Forgery (CSRF) Protection: Easily supports security features like CSRF by managing tokens.
+
+5/1/2025
+***********
+
+TAILWIND CSS
+============
+install this in extension in vscode: 
+===>Tailwind CSS IntelliSense
+===>tailwind docs
+
+
+to see your tailwind css property in vs code--> ctrl+shift+p
+
+instalation TW-CSS
+-------------------
+=>npm create vite@latest my-project
+=>cd my-project
+=>npm install tailwindcss @tailwindcss/vite
+==>IN CSS FILE : @import "tailwindcss";
+
+
+6/1/2025
+**********
+FIREBASE
+---------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
