@@ -1,0 +1,373 @@
+8.What are decorators in Python?
+10.What are the common built-in data types in Python?
+Q12.What is slicing in Python?
+13.What are Keywords in Python?
+14.What are Literals in Python and explain about different Literals
+15.How to combine dataframes in pandas?
+16.What are the new features added in Python 3.9.0.0 version?
+17. How is memory managed in Python?
+18. What is namespace in Python?
+19. What is PYTHONPATH?
+Q20. What are python modules? Name some commonly used built-in modules in Python?
+Ans: Python modules are files containing Python code. This code can either be functions classes or variables. A Python module is a .py file containing executable code.
+     Some of the commonly used built-in modules are:
+          *os
+          *sys
+          *math
+          *random
+          *data time
+          *JSON
+Q21.What are local variables and global variables in Python?
+*Global Variables:
+        Variables declared outside a function or in global space are called global variables.
+        These variables can be accessed by any function in the program.
+*Local Variables:
+        Any variable declared inside a function is known as a local variable.
+        This variable is present in the local space and not in the global space.
+Q22. Is python case sensitive?
+Ans: Yes. Python is a case sensitive language.
+
+Q23.What is type conversion in Python?
+Ans: Type conversion refers to the conversion of one data type into another.
+       *int() – converts any data type into integer type
+       *float() – converts any data type into float type
+       *ord() – converts characters into integer
+       *hex() – converts integers to hexadecimal
+       *oct() – converts integer to octal
+       *tuple() – This function is used to convert to a tuple.
+       *set() – This function returns the type after converting to set.
+       *list() – This function is used to convert any data type to a list type.
+       *dict() – This function is used to convert a tuple of order (key, value) into a dictionary.
+       *str() – Used to convert integer into a string.
+       *complex(real,imag) – This function converts real numbers to complex(real,imag) number.
+Q26. What is the difference between Python Arrays and lists?
+Q27. What are functions in Python?
+Ans: A function is a block of code which is executed only when it is called. To define a Python function, the def keyword is used.
+
+Q28.What is __init__?
+Ans: __init__ is a method or constructor in Python. This method is automatically called to allocate memory when a new object/ instance of a class is created. All classes have the __init__ method.
+
+Q29.What is a lambda function?
+Ans: An anonymous function is known as a lambda function. This function can have any number of parameters but, can have just one statement.
+Q30. What is self in Python?
+Q31. How does break, continue and pass work?
+
+Q32. What does [::-1} do?
+Ans: [::-1] is used to reverse the order of an array or a sequence.
+
+Q34. What are python iterators?
+Ans: Iterators are objects which can be traversed though or iterated upon.
+
+Q36. What is the difference between range & xrange?
+
+Q37. How do you write comments in python?
+Ans: Comments in Python start with a # character. However, alternatively at times, commenting is done using docstrings(strings enclosed within triple quotes).
+
+Q38. What is pickling and unpickling?
+Ans: Pickle module accepts any Python object and converts it into a string
+     representation and dumps it into a file by using dump function, this process 
+     is called pickling. While the process of retrieving original Python objects from 
+     the stored string representation is called unpickling.
+
+Q39. What are the generators in python?
+Ans: Functions that return an iterable set of items are called generators.
+
+Q40. How will you capitalize the first letter of string?
+Ans: In Python, the capitalize() method capitalizes the first letter of a string. If the string already consists of a capital letter at the beginning, then, it returns the original string.
+
+Q41. How will you convert a string to all lowercase?
+Ans: To convert a string to lowercase, lower() function can be used.
+
+Q44. What is the purpose of ‘is’, ‘not’ and ‘in’ operators?
+Ans: Operators are special functions. They take one or more values and produce a corresponding result.
+       *is: returns true when 2 operands are true  (Example: “a” is ‘a’)
+       *not: returns the inverse of the boolean value
+       *in: checks if some element is present in some sequence
+Q45. What is the usage of help() and dir() function in Python?
+Ans: Help() and dir() both functions are accessible from the Python interpreter and used for viewing a consolidated dump of built-in functions. 
+            *Help() function: The help() function is used to display the documentation string and also facilitates you to see the help related to modules, keywords, attributes, etc.
+            *Dir() function: The dir() function is used to display the defined symbols.
+Q47. What is a dictionary in Python?
+Q49. What does this mean: *args, **kwargs? And why would we use it?
+
+Q50. What does len() do?
+Ans: It is used to determine the length of a string, a list, an array, etc.
+Q51. Explain split(), sub(), subn() methods of “re” module in Python.
+
+Q53. What are Python packages?
+Ans: Python packages are namespaces containing multiple modules.
+
+Q54.How can files be deleted in Python?
+Ans: To delete a file in Python, you need to import the OS Module. After that, you need to use the os.remove() function.
+
+Q55. What are the built-in types of python?
+Ans: Built-in types in Python are as follows –
+          *Integers
+          *Floating-point
+          *Complex numbers
+          *Strings
+          *Boolean
+          *Built-in functions
+Q57. How to add values to a python array?
+Ans: Elements can be added to an array using the append(), extend() and the insert (i,x) functions.
+
+Q58. How to remove values to a python array?
+Ans: Array elements can be removed using pop() or remove() method. The difference between these two functions is that the former returns the deleted value whereas the latter does not.
+
+Q59. Does Python have OOps concepts?
+Q60. What is the difference between deep and shallow copy?
+Q61. How is Multithreading achieved in Python?
+Q62. What is the process of compilation and linking in python?
+
+Q63. What are Python libraries? Name a few of them.
+Ans:  Python libraries are a collection of Python packages.  
+      Some of the majorly used python libraries are – Numpy, Pandas, Matplotlib,
+      Scikit-learn and many more.
+
+Q64. What is split used for?
+Ans:The split() method is used to separate a given String in Python.
+
+Q65. How to import modules in python?
+Ans:Modules can be imported using the import keyword.  You can import modules in three ways-
+Example:
+      *import array           #importing using the original module name
+      *import array as arr    # importing using an alias name
+      *from array import *    #imports everything present in the array module
+
+Q66. Explain Inheritance in Python with an example.
+Ans:They are different types of inheritance supported by Python:
+        *Single Inheritance – where a derived class acquires the members of a single super class.
+        *Multi-level inheritance – a derived class d1 in inherited from base class base1, and d2 are inherited from base2.
+        *Hierarchical inheritance – from one base class you can inherit any number of child classes
+        *Multiple inheritance – a derived class is inherited from more than one base class.
+
+Q68. What is monkey patching in Python?
+Ans: In Python, the term monkey patch only refers to dynamic modifications of a class or module at run-time.
+
+Consider the below example:
+      # m.py
+      class MyClass:
+      def f(self):
+      print "f()"
+
+Q69. Does python support multiple inheritance?
+Ans: Multiple inheritance means that a class can be derived from more than one parent classes. Python does support multiple inheritance, unlike Java.
+
+Q70. What is Polymorphism in Python?
+
+Q71. Define encapsulation in Python?
+Ans: Encapsulation means binding the code and the data together. A Python class in an example of encapsulation.
+
+Q72. How do you do data abstraction in Python?
+
+Q74. How to create an empty class in Python? 
+Ans: An empty class is a class that does not have any code defined within its block. 
+     It can be created using the pass keyword. However, you can create objects of this
+     class outside the class itself. IN PYTHON THE PASS command does nothing when its 
+     executed. it’s a null statement. 
+
+Q75. What does an object() do?
+Ans: It returns a featureless object that is a base for all classes. Also, it does not take any parameters.
+
+
+                  Python Libraries – Python Interview Questions
+                 ***********************************************
+Q84. Explain what Flask is and its benefits?
+Q85. Is Django better than Flask?
+Q86. Mention the differences between Django, Pyramid and Flask.
+Q87. Discuss Django architecture.
+Q88. Explain how you can set up the Database in Django.
+Q89. Give an example how you can write a VIEW in Django?
+Q90. Mention what the Django templates consist of.
+Q91. Explain the use of session in Django framework?
+Q92.  List out the inheritance styles in Django.
+
+
+                Web Scraping – Python Interview Questions
+               *******************************************
+Q93. How To Save An Image Locally Using Python Whose URL Address I Already Know?
+Ans: We will use the following code to save an image locally from an URL address
+         *import urllib.request
+         *urllib.request.urlretrieve("URL", "local-filename.jpg")
+
+Q94. How can you Get the Google cache age of any URL or web page?
+Ans: Use the following URL format:
+     http://webcache.googleusercontent.com/search?q=cache:URLGOESHERE
+
+Q100. What is the difference between NumPy and SciPy?
+
+
+
+****************************************************************************************************
+                   INTERVIEW-------PROGRAMMING QUESTIONS
+
+
+
+Q76. Write a program in Python to execute the Bubble sort algorithm.
+Q77. Write a program in Python to produce Star triangle.
+Q78. Write a program to produce Fibonacci series in Python.
+Q79. Write a program in Python to check if a number is prime.
+Q80. Write a program in Python to check if a sequence is a Palindrome.
+Q81. Write a one-liner that will count the number of capital letters in a file. Your code should work even if the file is too big to fit in memory.
+Q82. Write a sorting algorithm for a numerical dataset in Python.
+Q98. How to get indices of N maximum values in a NumPy array?
+Q99. How do you calculate percentiles with Python/ NumPy?
+
+
+
+
+*******************************************************************************
+                         Multiple Choice Questions (MCQ) – Python Interview Questions
+Q102. Which of the following statements create a dictionary? (Multiple Correct Answers Possible)
+a) d = {}
+b) d = {“john”:40, “peter”:45}
+c) d = {40:”john”, 45:”peter”}
+d) d = (40:”john”, 45:”50”)
+Answer: b, c & d. 
+
+Dictionaries are created by specifying keys and values.
+
+Q103. Which one of these is floor division?
+a) /
+b) //
+c) %
+d) None of the mentioned
+Answer: b) //
+
+When both of the operands are integer then python chops out the fraction part and gives you the round off value, to get the accurate answer use floor division. For ex, 5/2 = 2.5 but both of the operands are integer so answer of this expression in python is 2. To get the 2.5 as the answer, use floor division using //. So, 5//2 = 2.5
+
+Q104. What is the maximum possible length of an identifier?
+a) 31 characters
+b) 63 characters
+c) 79 characters
+d) None of the above
+Answer: d) None of the above
+
+Identifiers can be of any length.
+
+Q105. Why are local variable names beginning with an underscore discouraged?
+a) they are used to indicate a private variables of a class
+b) they confuse the interpreter
+c) they are used to indicate global variables
+d) they slow down execution
+Answer: a) they are used to indicate a private variable of a class
+
+As Python has no concept of private variables, leading underscores are used to indicate variables that must not be accessed from outside the class.
+
+Q106. Which of the following is an invalid statement?
+a) abc = 1,000,000
+b) a b c = 1000 2000 3000
+c) a,b,c = 1000, 2000, 3000
+d) a_b_c = 1,000,000
+Answer: b) a b c = 1000 2000 3000
+
+Spaces are not allowed in variable names.
+
+Q107. What is the output of the following?
+1
+2
+3
+4
+5
+6
+7
+try:
+    if '1' != 1:
+        raise "someError"
+    else:
+        print("someError has not occured")
+except "someError":
+    print ("someError has occured")
+a) someError has occured
+b) someError has not occured
+c) invalid code
+d) none of the above
+Answer: c) invalid code
+
+A new exception class must inherit from a BaseException. There is no such inheritance here.
+
+Q108. Suppose list1 is [2, 33, 222, 14, 25], What is list1[-1] ?
+a) Error
+b) None
+c) 25
+d) 2
+Answer: c) 25
+
+The index -1 corresponds to the last index in the list.
+
+Q109. To open a file c:scores.txt for writing, we use
+a) outfile = open(“c:scores.txt”, “r”)
+b) outfile = open(“c:scores.txt”, “w”)
+c) outfile = open(file = “c:scores.txt”, “r”)
+d) outfile = open(file = “c:scores.txt”, “o”)
+Answer: b) The location contains double slashes ( ) and w is used to indicate that file is being written to.
+
+Q110. What is the output of the following?
+1
+2
+3
+4
+5
+6
+7
+8
+f = None
+ 
+for i in range (5):
+    with open("data.txt", "w") as f:
+        if (i > 2):
+            break
+ 
+print f.closed
+a) True
+b) False
+c) None
+d) Error
+Answer: a) True 
+
+The WITH statement when used with open file guarantees that the file object is closed when the with block exits.
+
+Q111. When will the else part of try-except-else be executed?
+a) always
+b) when an exception occurs
+c) when no exception occurs
+d) when an exception occurs into except block
+Answer: c) when no exception occurs
+
+
+
+***********************************************************************************************
+                     OOPs Interview Questions
+                    *************************
+What is the difference between OOP and SOP?
+What is OOPs?
+Why use OOPs?
+What are the main features of OOPs?
+What is an object?
+What is a class?
+What is the difference between a class and a structure?
+Can you call the base class method without creating an instance?
+What is the difference between a class and an object?
+What is inheritance?
+What are the different types of inheritance?
+What is the difference between multiple and multilevel inheritance?
+What is hybrid inheritance?
+What are the limitations of inheritance?
+What is a superclass?
+What is a subclass?
+What is method overloading?
+What is method overriding?
+Differentiate between overloading and overriding.
+ Differentiate between data abstraction and encapsulation.
+What is a destructor?
+ What is an exception?
+What is exception handling?
+What are the limitations of OOPs?
+
+
+
+
+
+
+
+
